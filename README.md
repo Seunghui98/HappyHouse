@@ -1,9 +1,4 @@
-# Vue.js 관통 프로젝트
-
-- Vue.js 와 SpringBoot를 활용하여 Happy House 홈페이지를 구현하였습니다.
-- happyhouse 폴더는 vue.js가 들어있는 폴더입니다.
-- HappyHouse-2 폴더는 SpringBoot가 들어있는 폴더입니다.
-- sql 폴더는 DB관련 sql문이 들어있습니다.
+# Happy House 부동산 사이트 프로젝트
 
 ## 프로젝트 테스트 방법
 1. git clone
