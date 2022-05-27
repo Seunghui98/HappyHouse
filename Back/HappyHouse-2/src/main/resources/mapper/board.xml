@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.happyhouse.model.mapper.BoardMapMapper">
+	<insert id="regist" parameterType="BoardDto">
+		insert into board (createtime, title, content, id)
+		values (now(), #{title}, #{content}, #{id})
+	</insert>
+	
+	
+	<resultMap type="BoardDto" id="boardList">
+		<result column="num" property="num"/>
+		<result column="createtime" property="createtime"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="id" property="id"/>
+	</resultMap>
+	
+	<sql id="search">
+		<if test="word != null and word != ''">
+			<if test="key == 'title'">
+				and subject like concat('%', #{word}, '%')
+			</if>
+			<if test="key != 'title'">
+				and ${key} = #{word}
+			</if>
+		</if>
+	</sql>
+	
+	<select id="selectList" parameterType="map" resultMap="boardList">
+		select num, createtime, title, content, id
+		from board
+		<include refid="search"></include>
+		order by num desc
+	</select>
+	
+	<select id="getTotalCount" parameterType="map" resultType="int">
+		select count(num)
+		from board
+		<where>
+			<include refid="search"></include>
+		</where>
+	</select>
+	
+	<select id="selectBoard" parameterType="int" resultType="BoardDto">
+		select num, createtime, title, content, id
+		from board
+		where num = #{num}
+	</select>
+	
+	<update id="update" parameterType="int">
+		update board
+		set title = #{title}, content = #{content}
+		where num = #{num}
+	</update>
+	
+	<update id="delete" parameterType="int">
+		delete from board
+		where num = #{num}
+	</update>
+</mapper>
