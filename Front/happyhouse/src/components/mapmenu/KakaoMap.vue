@@ -342,7 +342,7 @@ export default {
       });
 
       script.src =
-        "http://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=2868ed705319b1f4db9d256b28473d86";
+        "http://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=";
 
       document.head.appendChild(script);
     }
