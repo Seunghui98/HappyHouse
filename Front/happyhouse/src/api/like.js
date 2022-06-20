@@ -2,8 +2,8 @@ import { apiInstance } from "./index.js";
 
 const api = apiInstance();
 
-function registLike(like, success, fail) {
-  api
+async function registLike(like, success, fail) {
+  await api
     .post(`/like`, {
       user_id: like.user_id,
       apt_code: like.apt_code,
@@ -12,30 +12,30 @@ function registLike(like, success, fail) {
     .catch(fail);
 }
 
-function deleteLike(no, success, fail) {
-  api
+async function deleteLike(no, success, fail) {
+  await api
     .delete(`/like`, { params: { no: no } })
     .then(success)
     .catch(fail);
 }
 
-function getLikeHouseList(user_id, success, fail) {
-  api
+async function getLikeHouseList(user_id, success, fail) {
+  await api
     .get(`/like/list/${user_id}`)
     .then(success)
     .catch(fail);
 }
 
-function getLike(params, success, fail) {
-  console.log(params);
+async function getLike(params, success, fail) {
+  await console.log(params);
   api
     .get(`/like/${params.apt_code}/${params.user_id}`)
     .then(success)
     .catch(fail);
 }
 
-function deleteLikeByAptCode(params, success, fail) {
-  console.log(params);
+async function deleteLikeByAptCode(params, success, fail) {
+  await console.log(params);
   api
     .delete(`/like/${params.apt_code}/${params.user_id}`)
     .then(success)
