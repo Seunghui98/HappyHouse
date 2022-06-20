@@ -17,8 +17,8 @@ async function findById(userid, success, fail) {
     .catch(fail);
 }
 
-function modifyUserInfo(user, success, fail) {
-  api
+async function modifyUserInfo(user, success, fail) {
+  await api
     .put(`/user`, {
       id: user.id,
       name: user.name,
@@ -29,8 +29,8 @@ function modifyUserInfo(user, success, fail) {
     .catch(fail);
 }
 
-function registUserInfo(user, success, fail) {
-  api
+async function registUserInfo(user, success, fail) {
+  await api
     .post(`/user`, {
       id: user.id,
       password: user.password,
@@ -42,8 +42,8 @@ function registUserInfo(user, success, fail) {
     .catch(fail);
 }
 
-function modifyUserPassword(user, success, fail) {
-  api
+async function modifyUserPassword(user, success, fail) {
+  await api
     .put(`/user/password`, {
       id: user.id,
       password: user.password,
@@ -52,8 +52,8 @@ function modifyUserPassword(user, success, fail) {
     .catch(fail);
 }
 
-function deleteUser(id, success, fail) {
-  api
+async function deleteUser(id, success, fail) {
+  await api
     .delete(`/user/password`, id)
     .then(success)
     .catch(fail);
