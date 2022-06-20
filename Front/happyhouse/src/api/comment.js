@@ -2,9 +2,9 @@ import { apiInstance } from "./index.js";
 
 const api = apiInstance();
 
-function registComment(comment, success, fail) {
+async function registComment(comment, success, fail) {
   console.log(comment);
-  api
+  await api
     .post(`/comment/${comment.Board_no}`, {
       user_id: comment.user_id,
       content: comment.content,
@@ -14,22 +14,22 @@ function registComment(comment, success, fail) {
     .catch(fail);
 }
 
-function getCommentList(Board_no, success, fail) {
-  api
+async function getCommentList(Board_no, success, fail) {
+  await api
     .get(`/comment/${Board_no}`)
     .then(success)
     .catch(fail);
 }
 
-function deleteComment(comment_no, success, fail) {
+async function deleteComment(comment_no, success, fail) {
   console.log(comment_no);
-  api
+  await api
     .delete(`/comment/${comment_no}`)
     .then(success)
     .catch(fail);
 }
-function modifyComment(comment, success, fail) {
-  api
+async function modifyComment(comment, success, fail) {
+  await api
     .put(`/comment`, {
       content: comment.content,
       comment_no: comment.comment_no,
