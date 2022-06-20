@@ -2,8 +2,8 @@ import { apiInstance } from "./index.js";
 
 const api = apiInstance();
 
-function getNewsList(keyword, success, fail) {
-  api
+async function getNewsList(keyword, success, fail) {
+  await api
     .get(`/news/${keyword}`)
     .then(success)
     .catch(fail);
