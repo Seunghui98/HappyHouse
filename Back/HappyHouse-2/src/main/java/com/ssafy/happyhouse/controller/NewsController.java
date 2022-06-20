@@ -54,8 +54,8 @@ public class NewsController {
 			HttpServletRequest request) throws Exception {
 		logger.info("getNews 요청");
 		logger.info("매개변수 : {}", keyword);
-		String clientId = "mpvc6EDQqUOSmM9jAgDg";
-		String clientSecret = "uYPsfvioXT";
+		// String clientId = "";
+		// String clientSecret = "";
 		List<NewsDto> response = new ArrayList<>();
 		try {
 			String text = URLEncoder.encode(keyword, "UTF-8");
